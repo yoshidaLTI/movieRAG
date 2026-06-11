@@ -200,3 +200,4 @@ python extract_asr.py movie/test1/result.json
 |---|---|---|
 | `--group-size` | 3 | 親チャンクにまとめるスライド枚数 |
 | `--no-hint` | - | proper_nounsをヒントに使わない |
+# movieRAG
