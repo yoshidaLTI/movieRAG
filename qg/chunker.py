@@ -18,33 +18,62 @@ def get_asr_text(slide: dict) -> str:
     return "\n".join(s["text"] for s in segments if s.get("text", "").strip())
 
 
-def chunk_by_slides(slides: list[dict], slides_per_chunk: int) -> list[dict]:
-    """N枚ごとにスライドをチャンク分割"""
-    chunks = []
-    for i in range(0, len(slides), slides_per_chunk):
-        group = slides[i:i + slides_per_chunk]
-        chunks.append(_build_chunk(group, f"chunk_{i // slides_per_chunk:04d}"))
-    return chunks
+def chunk_by_slides(
+    slides: list[dict],
+    slides_per_chunk: int,
+    slide_overlap: int = 0,
+) -> list[dict]:
+    """N枚ごとにスライドをチャンク分割。slide_overlap枚だけ隣のチャンクと重複させる。"""
+    step = max(1, slides_per_chunk - slide_overlap)
+    return [
+        _build_chunk(slides[i:i + slides_per_chunk], f"chunk_{chunk_idx:04d}")
+        for chunk_idx, i in enumerate(range(0, len(slides), step))
+    ]
 
 
-def chunk_by_time(slides: list[dict], minutes_per_chunk: float) -> list[dict]:
-    """N分ごとにスライドをチャンク分割（チャンク先頭からの経過時間で区切る）"""
+def chunk_by_time(
+    slides: list[dict],
+    minutes_per_chunk: float,
+    time_overlap_sec: float = 0.0,
+) -> list[dict]:
+    """N分ごとにスライドをチャンク分割。time_overlap_sec秒だけ隣のチャンクと重複させる。"""
     threshold_sec = minutes_per_chunk * 60
     chunks = []
-    buffer: list[dict] = []
     chunk_idx = 0
+    start_i = 0
 
-    for slide in slides:
-        buffer.append(slide)
-        start = buffer[0].get("time", {}).get("start_sec", 0.0)
-        end   = slide.get("time", {}).get("end_sec", 0.0)
-        if end - start >= threshold_sec:
-            chunks.append(_build_chunk(buffer, f"chunk_{chunk_idx:04d}"))
-            chunk_idx += 1
-            buffer = []
+    while start_i < len(slides):
+        buffer = []
+        hit_threshold = False
+        last_j = len(slides) - 1
 
-    if buffer:
+        for j in range(start_i, len(slides)):
+            buffer.append(slides[j])
+            chunk_start = slides[start_i].get("time", {}).get("start_sec", 0.0)
+            chunk_end = slides[j].get("time", {}).get("end_sec", 0.0)
+            if chunk_end - chunk_start >= threshold_sec:
+                hit_threshold = True
+                last_j = j
+                break
+
         chunks.append(_build_chunk(buffer, f"chunk_{chunk_idx:04d}"))
+        chunk_idx += 1
+
+        if not hit_threshold:
+            break
+
+        chunk_end_time = slides[last_j].get("time", {}).get("end_sec", 0.0)
+        next_anchor = chunk_end_time - time_overlap_sec
+        next_i = last_j + 1
+
+        if time_overlap_sec > 0:
+            for k in range(last_j, start_i, -1):
+                if slides[k].get("time", {}).get("start_sec", 0.0) >= next_anchor:
+                    next_i = k
+                else:
+                    break
+
+        start_i = max(start_i + 1, next_i)
 
     return chunks
 

@@ -7,17 +7,28 @@ build/
 .venv/
 venv/
 
-# 動画・画像（大容量ファイル）
-movie/**
-!movie/.gitkeep
+# 動画ファイル（大容量）
+*.mp4
 
-# ChromaDB インデックス
+# 抽出フレーム画像（大容量）
+movie/*/slide*/
+
+# ChromaDB インデックス（大容量バイナリ）
+movie/*/chroma_*/
 chroma_*/
 
-# 評価の生成物（自動生成されるスコアファイル）
-eval/previous_qg/rag_quality_scores.json
-eval/previous_qg/rag_quality_result.json
-eval/previous_qg/rag_quality_scores_*.json
+# パイプライン中間ファイル
+movie/*/qg_chunks_*.json
+movie/*/qg_chunks_*_cot.json
+
+# 評価チェックポイント（再生成可能）
+movie/*/qg_eval_scores.json
+
+# 旧evalシステム
+eval/eval_rag_quality.py
+eval/dump_qwen_scores.py
+eval/previous_qg/
+eval/claude_knowledge/
 
 # キャッシュ
 .cache/
