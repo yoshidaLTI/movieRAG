@@ -1,17 +1,25 @@
-# slide_checker
+# movieRAG
 
 動画からスライドの変化・アニメーションを検知し、OCR・ASR・RAGインデックスを構築するツール群。
 
 ## セットアップ
 
 ```bash
-# 依存ライブラリ
+# 1. リポジトリを取得
+git clone https://github.com/yoshidaLTI/movieRAG.git
+cd movieRAG
+
+# 2. 仮想環境を作成して有効化
+python -m venv .venv
+source .venv/bin/activate   # Mac/Linux
+
+# 3. 依存ライブラリをインストール
 pip install -r requirements.txt
 
-# ffmpeg（macOS）
+# 4. ffmpeg（macOS）
 brew install ffmpeg
 
-# LMStudio を起動し、以下のモデルをロードしておく
+# 5. LMStudio を起動し、以下のモデルをロードしておく
 #   - OCRモデル（例: glm-ocr）
 #   - 固有名詞抽出モデル（例: gpt-oss-20b）
 #   http://localhost:1234 で起動していることを確認
@@ -43,7 +51,7 @@ brew install ffmpeg
 ## Step 1〜3：一括実行（pipeline.py）
 
 ```bash
-python pipeline.py movie/test1.mp4 \
+python extract/pipeline.py movie/test1.mp4 \
     --ocr-model   glm-ocr \
     --nouns-model gpt-oss-20b \
     --asr-model   mlx-community/whisper-large-v3-mlx
@@ -53,13 +61,13 @@ python pipeline.py movie/test1.mp4 \
 
 ```bash
 # Step 1: スライド検知 + OCR
-python slide_checker.py movie/test1.mp4 --model glm-ocr
+python extract/slide_checker.py movie/test1.mp4 --model glm-ocr
 
 # Step 2: 動画全体の共通固有名詞リスト作成
-python proper_nouns_global.py movie/test1/result.json --model gpt-oss-20b
+python extract/proper_nouns_global.py movie/test1/result.json --model gpt-oss-20b
 
 # Step 3: ASR（meta.proper_nouns_global を InitialPrompt として使用）
-python asr.py movie/test1.mp4 --result movie/test1/result.json \
+python extract/asr.py movie/test1.mp4 --result movie/test1/result.json \
     --model mlx-community/whisper-large-v3-mlx
 ```
 
@@ -67,10 +75,10 @@ python asr.py movie/test1.mp4 --result movie/test1/result.json \
 
 ```bash
 # Step 2以降のみ
-python pipeline.py movie/test1.mp4 --skip-ocr
+python extract/pipeline.py movie/test1.mp4 --skip-ocr
 
 # Step 3のみ
-python pipeline.py movie/test1.mp4 --skip-ocr --skip-nouns
+python extract/pipeline.py movie/test1.mp4 --skip-ocr --skip-nouns
 ```
 
 ---
@@ -78,7 +86,7 @@ python pipeline.py movie/test1.mp4 --skip-ocr --skip-nouns
 ## Step 4-A：文字数チャンキング RAG
 
 ```bash
-python rag_build.py movie/test1/result.json
+python extract/rag_build.py movie/test1/result.json
 ```
 
 | ディレクトリ | 内容 |
@@ -88,7 +96,7 @@ python rag_build.py movie/test1/result.json
 | `movie/test1/chroma_char_asr/` | ASR のみ |
 
 ```bash
-python rag_search.py "TCP/IPとは？" --chroma movie/test1/chroma_char_asr_ocr_mix
+python extract/rag_search.py "TCP/IPとは？" --chroma movie/test1/chroma_char_asr_ocr_mix
 ```
 
 ---
@@ -96,7 +104,7 @@ python rag_search.py "TCP/IPとは？" --chroma movie/test1/chroma_char_asr_ocr_
 ## Step 4-B：スライド単位 RAG
 
 ```bash
-python rag_build_slide.py movie/test1/result.json
+python extract/rag_build_slide.py movie/test1/result.json
 ```
 
 | ディレクトリ | 内容 |
@@ -106,7 +114,7 @@ python rag_build_slide.py movie/test1/result.json
 | `movie/test1/chroma_slide_asr/` | ASR のみ |
 
 ```bash
-python rag_search_slide.py "TCP/IPとは？" --chroma movie/test1/chroma_slide_asr_ocr_mix
+python extract/rag_search_slide.py "TCP/IPとは？" --chroma movie/test1/chroma_slide_asr_ocr_mix
 ```
 
 ---
@@ -115,7 +123,7 @@ python rag_search_slide.py "TCP/IPとは？" --chroma movie/test1/chroma_slide_a
 
 ```bash
 # ASR テキストを抽出
-python extract_asr.py movie/test1/result.json
+python extract/extract_asr.py movie/test1/result.json
 ```
 
 ---
@@ -200,4 +208,3 @@ python extract_asr.py movie/test1/result.json
 |---|---|---|
 | `--group-size` | 3 | 親チャンクにまとめるスライド枚数 |
 | `--no-hint` | - | proper_nounsをヒントに使わない |
-# movieRAG
