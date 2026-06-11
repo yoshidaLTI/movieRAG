@@ -43,8 +43,9 @@ python qg/qg_direct.py movie/lecture/result.json --by-time
 |---|---|---|
 | `--by-slides` | - | スライド枚数基準（パターン1）|
 | `--by-time` | - | 経過時間基準（パターン2）|
-| `--slides-per-chunk` | `3` | 何枚ごとに1問生成するか |
-| `--minutes-per-chunk` | `5.0` | 何分ごとに1問生成するか |
+| `--slides-per-chunk` | `3` | 何枚ごとに1チャンクとするか |
+| `--minutes-per-chunk` | `5.0` | 何分ごとに1チャンクとするか |
+| `--questions-per-chunk` | `1` | 1チャンクあたりの生成問題数 |
 | `--model` | `qwen/qwen3-vl-8b` | LMStudioのモデル名 |
 | `--output` | 自動 | 出力JSONパス |
 | `--lmstudio-url` | `http://localhost:1234/v1/chat/completions` | LMStudioエンドポイント |
@@ -97,8 +98,9 @@ python qg/qg_rag.py movie/lecture/result.json \
 | `--chroma` | 必須 | RAGインデックスのパス |
 | `--by-slides` | - | スライド枚数基準（パターン3）|
 | `--by-time` | - | 経過時間基準（パターン4）|
-| `--slides-per-chunk` | `3` | 何枚ごとに1問生成するか |
-| `--minutes-per-chunk` | `5.0` | 何分ごとに1問生成するか |
+| `--slides-per-chunk` | `3` | 何枚ごとに1チャンクとするか |
+| `--minutes-per-chunk` | `5.0` | 何分ごとに1チャンクとするか |
+| `--questions-per-chunk` | `1` | 1チャンクあたりの生成問題数 |
 | `--model` | `qwen/qwen3-vl-8b` | LMStudioのモデル名 |
 | `--rag-k` | `3` | RAG検索で取得する上位件数 |
 | `--embedding-model` | `cl-nagoya/ruri-v3-310m` | 埋め込みモデル名 |
