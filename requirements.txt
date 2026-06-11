@@ -2,7 +2,8 @@ opencv-python>=4.8.0
 scikit-image>=0.21.0
 numpy>=1.24.0
 requests>=2.31.0
-mlx-whisper>=0.4.0
+# carry_initial_prompt 対応のfork版（公式PyPI版では動作しない）
+git+https://github.com/kyoshizaki/mlx-examples.git@d0121f9c1d96f98eb449902be3b53ed6dd7aca1f#subdirectory=whisper
 torch>=2.0.0
 transformers>=4.40.0
 langchain-core>=0.3.0
