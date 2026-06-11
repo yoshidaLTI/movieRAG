@@ -181,7 +181,7 @@ def to_all_documents(
 
         # ── 子ドキュメント ──
         for mode, child_base_text in [
-            ("combined", chunk["asr_text"] or chunk["ocr_text"]),
+            ("combined", _build_parent_text(chunk["ocr_text"], chunk["asr_text"])),
             ("ocr",      chunk["ocr_text"]),
             ("asr",      chunk["asr_text"]),
         ]:
