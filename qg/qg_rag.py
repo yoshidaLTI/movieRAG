@@ -188,7 +188,7 @@ def run(
                     "question_id":   qid,
                     "model":         model,
                     "method":        "rag",
-                    "detail":        detail,
+                    "detail_setting": detail,
                     "chunk_id":      chunk["chunk_id"],
                     "slide_ids":     chunk["slide_ids"],
                     "start_sec":     chunk["start_sec"],
