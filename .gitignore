@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# 動画・画像（大容量ファイル）
+movie/
+
+# ChromaDB インデックス
+chroma_*/
+
+# 評価中間ファイル
+previous_qg/rag_quality_scores.json
+previous_qg/rag_quality_result.json
+previous_qg/rag_quality_scores_*.json
+
+# 分析・評価スクリプト・データ（ローカル研究用）
+analyze/
+eval_rag_quality.py
+dump_qwen_scores.py
+previous_qg/
+claude_knowledge/
+
+# キャッシュ
+.cache/
+*.npy
+
+# macOS
+.DS_Store

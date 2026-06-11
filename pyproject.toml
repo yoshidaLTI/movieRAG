@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "movie-rag"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "opencv-python>=4.8.0",
+    "scikit-image>=0.21.0",
+    "numpy>=1.24.0",
+    "requests>=2.31.0",
+    "mlx-whisper>=0.4.0",
+    "torch>=2.0.0",
+    "transformers>=4.40.0",
+    "langchain-core>=0.3.0",
+    "langchain-chroma>=0.1.0",
+    "langchain-text-splitters>=0.3.0",
+    "chromadb>=0.5.0",
+    "scipy",
+    "matplotlib",
+]
+
+[project.scripts]
+movie-pipeline      = "pipeline:main"
+movie-ocr           = "slide_checker:main"
+movie-nouns         = "proper_nouns_global:main"
+movie-asr           = "asr:main"
+movie-rag-build     = "rag_build:main"
+movie-rag-build-slide = "rag_build_slide:main"
+movie-rag-search    = "rag_search:main"
+movie-rag-search-slide = "rag_search_slide:main"
+movie-extract-asr   = "extract_asr:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["rag*", "slide_base_rag*"]
+
+[tool.setuptools]
+py-modules = [
+    "pipeline",
+    "slide_checker",
+    "proper_nouns_global",
+    "asr",
+    "rag_build",
+    "rag_build_slide",
+    "rag_search",
+    "rag_search_slide",
+    "extract_asr",
+]
