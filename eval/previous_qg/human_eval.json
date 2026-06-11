@@ -1,0 +1,1650 @@
+{
+  "meta": {
+    "video_ids": [
+      31,
+      32
+    ],
+    "total_questions": 117,
+    "created_at": "2026-05-16T11:26:02.837253+00:00"
+  },
+  "questions": [
+    {
+      "qg_id": 796,
+      "video_id": 31,
+      "question": "講義で紹介されたBYODサポートページの主な役割は何ですか？",
+      "answer": "学生が自分のノートパソコンを大学環境で使用する際の使い方やトラブル対応情報をまとめること。",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 797,
+      "video_id": 31,
+      "question": "初期パスワードはいつ変更すべきと講義では説明されていますか？",
+      "answer": "入学直後にMicrosoft 365やZoomなどのサービスを安全に利用するため、早めに自分専用のパスワードへ変更する。",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 798,
+      "video_id": 31,
+      "question": "大学内でプリンターを管理・制御するソフトウェアは何ですか？",
+      "answer": "PaperCut MF 23.0",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 799,
+      "video_id": 31,
+      "question": "入学時に自動的に決定される利用者IDカードに記載された初期パスワードをそのまま使用した場合、Microsoft 365やZoomなどのサービスはどのような状態になりますか？",
+      "answer": "セキュリティ上安全ではないため、利用できません。",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 800,
+      "video_id": 31,
+      "question": "旦野原キャンパスで無線LANに接続する際に選択すべきSSIDは何ですか？",
+      "answer": "OU‑WLAN",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 801,
+      "video_id": 31,
+      "question": "旦野原キャンパスにおいて学生が利用できるプリンターは、情報基盤センターのどこに設置されていますか？",
+      "answer": "1階第一実習室と印刷室、および図書館1階",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 802,
+      "video_id": 31,
+      "question": "旦野原キャンパスでWi‑Fiに接続する際、学生が選択すべきSSIDは何ですか？",
+      "answer": "OU-WLAN",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 803,
+      "video_id": 31,
+      "question": "無線LANの通信速度を表す単位として講義で説明されたものは何ですか？",
+      "answer": "bps（bit per second）",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 804,
+      "video_id": 31,
+      "question": "狭間キャンパスでネットワーク機器申請を行う際に参照すべきウェブページの名称は何ですか？",
+      "answer": "医学情報センター Web ページ（学生専用 > ネットワーク機器申請）",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 805,
+      "video_id": 31,
+      "question": "キャンパススクエアで授業を履修登録した後、Moodleにそのコースが表示されるまでにかかる時間はどれくらいですか？",
+      "answer": "30分以内",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 806,
+      "video_id": 31,
+      "question": "iPhone で大学の Gmail アカウントを利用するには、まず何を行う必要がありますか？",
+      "answer": "App Store から Gmail アプリをダウンロードしてインストールし、大学の Google アカウントを登録する",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 807,
+      "video_id": 31,
+      "question": "BYOD（自前ノートパソコン）で Microsoft 365 をインストールする手順は、大分大学 Web ページのどこに記載されていますか？",
+      "answer": "サイドバーの BYOD サポートページ → Microsoft 365 メニュー",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 808,
+      "video_id": 31,
+      "question": "授業で使われることがある機能を利用するために、学生は早めにどのソフトウェアを自分のパソコンにインストールすべきと説明されていますか？",
+      "answer": "Microsoft 365",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 809,
+      "video_id": 31,
+      "question": "大分大学が提供するGoogleドライブやGoogleカレンダーへアクセスする際、学生はどこからリンクをたどってログインすればよいと説明されていますか？",
+      "answer": "情報基盤センターまたは医学情報センターのWebページ",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 810,
+      "video_id": 31,
+      "question": "情報セキュリティに関する小テストで、成績に反映される最低点数は全体問題数の何％以上ですか？",
+      "answer": "60%",
+      "human_evaluations": [
+        {
+          "score": 2,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 2.0
+    },
+    {
+      "qg_id": 811,
+      "video_id": 31,
+      "question": "大分大学の利用者IDはどのように構成されていますか？",
+      "answer": "アルファベット1文字と学籍番号",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 812,
+      "video_id": 31,
+      "question": "PC実習室で利用できるWindows環境は、どの場所でも同じですか？",
+      "answer": "はい、すべてのPC実習室で同じ環境",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 813,
+      "video_id": 31,
+      "question": "ノートPCの貸出は、旦野原キャンパスのどこで行えますか？",
+      "answer": "図書館と情報基盤センター",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 814,
+      "video_id": 31,
+      "question": "大分大学の無線LAN接続において、旦野原キャンパスの学生が接続するSSIDは何ですか？",
+      "answer": "OU-WLAN",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 815,
+      "video_id": 31,
+      "question": "学生が大学のプリンターで印刷する際、印刷を実行する前に操作端末で行う必要のある手順は何ですか？",
+      "answer": "ユーザーIDとパスワードを入力してサインインする",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 816,
+      "video_id": 31,
+      "question": "大分大学の利用者IDはどのように構成されていますか？",
+      "answer": "アルファベット1文字と学籍番号で構成",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 817,
+      "video_id": 31,
+      "question": "大分大学の学生が利用できる無線LANのSSIDは、旦野原キャンパスでは何と呼ばれるか。",
+      "answer": "OU-WLAN",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 818,
+      "video_id": 31,
+      "question": "大分大学の学生が卒業まで利用できるメールサービスは何か。",
+      "answer": "Gmail",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 819,
+      "video_id": 31,
+      "question": "学生が自分のノートパソコンにインストールできるMicrosoftのオフィスソフトウェアは何か。",
+      "answer": "Microsoft 365",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 820,
+      "video_id": 31,
+      "question": "大分大学の学生は卒業まで利用できるメールサービスは何ですか？",
+      "answer": "Gmail",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 821,
+      "video_id": 31,
+      "question": "学生がMicrosoft 365をインストールするための手順は、どのWebページで確認できますか？",
+      "answer": "大分大学WebページのBYODサポートページ",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 822,
+      "video_id": 31,
+      "question": "情報セキュリティの学習のために用意されている教材の名称は何ですか？",
+      "answer": "情報倫理とセキュリティ",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 823,
+      "video_id": 31,
+      "question": "大分大学が提供するMicrosoft 365の利用は、卒業時まで可能である。",
+      "answer": "はい",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 824,
+      "video_id": 31,
+      "question": "GoogleドライブとGoogleカレンダーへのアクセスは、情報基盤センターまたは医学情報センターのWebページから行える。",
+      "answer": "はい",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 825,
+      "video_id": 31,
+      "question": "情報セキュリティの学習は、「情報倫理とセキュリティ」という教材を通じて行う。",
+      "answer": "はい",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 841,
+      "video_id": 31,
+      "question": "大分大学のPC実習室はどこに設置されているですか？",
+      "answer": "教養教育棟4階、情報基盤センター1階・2階",
+      "human_evaluations": [
+        {
+          "score": 1,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 1.0
+    },
+    {
+      "qg_id": 842,
+      "video_id": 31,
+      "question": "学生証を使ってノートパソコンから大学プリンターに印刷する方法は何ですか？",
+      "answer": "フェリカカードを使ったサインイン",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 843,
+      "video_id": 31,
+      "question": "大分大学の無線LANネットワークは何と呼ばれていますか？",
+      "answer": "OU-WLAN",
+      "human_evaluations": [
+        {
+          "score": 2,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 2.0
+    },
+    {
+      "qg_id": 844,
+      "video_id": 31,
+      "question": "大分大学の学生証には初期パスワードが記載されています。このパスワードは何のために使用されますか？",
+      "answer": "初期パスワードはMicrosoft 365のサービスやビデオ会議システムのZoomを利用するための設定変更を行うために使用されます。",
+      "human_evaluations": [
+        {
+          "score": 1,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 1.0
+    },
+    {
+      "qg_id": 845,
+      "video_id": 31,
+      "question": "無線LANアクセスの通信速度テストでは、どのような単位が使われますか？",
+      "answer": "無線LANアクセスの通信速度テストではBPS（ビットパーセコンド）という単位が使われます。",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 846,
+      "video_id": 31,
+      "question": "キャンパススクエアシステムは何のために使用されますか？",
+      "answer": "キャンプスクエアシステムは、学生が履修登録した授業をMoodleに反映させるためのものです。",
+      "human_evaluations": [
+        {
+          "score": 2,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 2.0
+    },
+    {
+      "qg_id": 847,
+      "video_id": 31,
+      "question": "無線LANアクセスポイントの近くに移動することで通信速度が向上する理由は何ですか？",
+      "answer": "遮蔽物や遠さによる信号減衰を緩和し、より高速な通信が可能になる。",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 848,
+      "video_id": 31,
+      "question": "Moodleの左側サイドバーにある'利用の手引き学生用'リンクは何を提供しますか？",
+      "answer": "Moodleの操作方法や解決策に関するマニュアルやFAQ等、学生が問題解決に役立つ情報を提供。",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 849,
+      "video_id": 31,
+      "question": "Microsoft 365は何を含みますか？",
+      "answer": "WordやExcelなどの最新版アプリケーションライセンス、大学生が卒業まで無料利用可能。",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 850,
+      "video_id": 31,
+      "question": "大分大学の電子メール環境はどのように構成されていますか？",
+      "answer": "大分大学では、学生と教職員がGメールを利用しています。",
+      "human_evaluations": [
+        {
+          "score": 2,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 2.0
+    },
+    {
+      "qg_id": 851,
+      "video_id": 31,
+      "question": "Microsoft 365とは何であり、大分大学生に提供される機能はどのようなものですか？",
+      "answer": "Microsoft 365は、WordやExcelなどを卒業まで無料で利用できるサービスです。",
+      "human_evaluations": [
+        {
+          "score": 2,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 2.0
+    },
+    {
+      "qg_id": 852,
+      "video_id": 31,
+      "question": "Googleドライブとカレンダーは大分大学が契約している情報サービスのどの項目に該当しますか？",
+      "answer": "Googleドライブとカレンダーは、大分大学が提供する主な情報サービスの一つです。",
+      "human_evaluations": [
+        {
+          "score": 1,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 1.0
+    },
+    {
+      "qg_id": 853,
+      "video_id": 31,
+      "question": "大分大学のキャンパス名は何ですか？",
+      "answer": "旦野原キャンパス",
+      "human_evaluations": [
+        {
+          "score": 1,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 1.0
+    },
+    {
+      "qg_id": 854,
+      "video_id": 31,
+      "question": "Microsoft 365をインストールする方法について、授業で触れられています。具体的なインストール方法に関する詳細は説明されていませんが、このソフトウェアの利用目的は何ですか？",
+      "answer": "卒業時までWordやExcelなどが利用可能",
+      "human_evaluations": [
+        {
+          "score": 2,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 2.0
+    },
+    {
+      "qg_id": 855,
+      "video_id": 31,
+      "question": "Googleドライブとカレンダーのアクセス方法について、授業で説明がありました。どのようにアクセスすることができますか？",
+      "answer": "情報基盤センターや医学情報センターのWebページからリンクをたどってアクセス",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 856,
+      "video_id": 32,
+      "question": "OSI参照モデルで最も下位に位置する層は何で、主に何を行うか？",
+      "answer": "物理層。ビット列を電気・光信号へ変換して送受信する。",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 857,
+      "video_id": 32,
+      "question": "TCP/IPスタックにおいて、エンドホスト間でのデータ転送を信頼性高く行うプロトコルは何か？",
+      "answer": "TCP（Transmission Control Protocol）",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 858,
+      "video_id": 32,
+      "question": "本講義で説明されたように、TCP/IPがOSIと競合している中で最終的に広く採用されるようになった主な理由は何か？",
+      "answer": "WindowsやmacOSなど主要OSが標準でサポートしたことで業界全体がTCP/IPを採用したため。",
+      "human_evaluations": [
+        {
+          "score": 1,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 1.0
+    },
+    {
+      "qg_id": 859,
+      "video_id": 32,
+      "question": "OSI参照モデルの層数は何階層ですか？",
+      "answer": "7階層",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 860,
+      "video_id": 32,
+      "question": "パケット交換ネットワークが導入された主な理由は何ですか？",
+      "answer": "障害に強く、回線利用効率を向上させるため",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 861,
+      "video_id": 32,
+      "question": "ARPANETで接続されていたコンピュータのメーカーはどれですか（4つ）？",
+      "answer": "SDS、DEC、IBM、Sigma7",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 862,
+      "video_id": 32,
+      "question": "TCP/IP が標準的に利用されるようになった主な理由は何ですか？",
+      "answer": "主要PCメーカー（Microsoft、Apple 等）が OS に TCP/IP を組み込んだこと。",
+      "human_evaluations": [
+        {
+          "score": 1,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 1.0
+    },
+    {
+      "qg_id": 863,
+      "video_id": 32,
+      "question": "講義で説明されたパケット交換方式の回線利用効率に関するメリットは何ですか？",
+      "answer": "複数ユーザーが同時に1本のリンクを共有でき、利用効率が向上しコストが低減されること。",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 864,
+      "video_id": 32,
+      "question": "TCP/IP の普及に大きく貢献した BSD UNIX を開発した大学はどこですか？",
+      "answer": "カリフォルニア大学バークレー校（UCB）",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 865,
+      "video_id": 32,
+      "question": "ARPANETが主要な米国大学を接続し始めた年は何年ですか？",
+      "answer": "1977年",
+      "human_evaluations": [
+        {
+          "score": 1,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 1.0
+    },
+    {
+      "qg_id": 866,
+      "video_id": 32,
+      "question": "1980年代に多くのコンピュータ上でTCP/IPを実装するために用いられたオペレーティングシステムは何ですか？",
+      "answer": "BSD UNIX",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 867,
+      "video_id": 32,
+      "question": "IETFが標準化プロセスで重視している原則を一言で表すと何ですか？",
+      "answer": "Rough consensus and running code",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 868,
+      "video_id": 32,
+      "question": "ARPANETがTCP/IPを唯一のプロトコルとして採用した年はいつですか？",
+      "answer": "1983年",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 869,
+      "video_id": 32,
+      "question": "ネットワーク上で「オクテット」と呼ばれる単位は何ビットから構成されますか？",
+      "answer": "8ビット",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 870,
+      "video_id": 32,
+      "question": "トランスポート層において、データの信頼性を確保するためにパケットが失われた場合に再送を行うプロトコルは何ですか？",
+      "answer": "TCP",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 871,
+      "video_id": 32,
+      "question": "ネットワークの世界で、コンピュータの世界と同じ8ビットを指す単位は何ですか？",
+      "answer": "Octet",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 872,
+      "video_id": 32,
+      "question": "講義で説明されたインターネットプロトコルにおける最大転送単位（MTU）は何オクテッドですか？",
+      "answer": "1500オクテッド",
+      "human_evaluations": [
+        {
+          "score": 1,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 1.0
+    },
+    {
+      "qg_id": 873,
+      "video_id": 32,
+      "question": "練習問題で、10BASE‑Tリンクをフル利用した場合に1 GBのファイルを転送するのに必要な時間は何秒ですか？",
+      "answer": "約800秒（13分20秒）",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 874,
+      "video_id": 32,
+      "question": "1GB（ギガバイト）のファイルを10BASE‑T（10Mbps）で転送する場合、ネットワーク利用率が100％のときにかかる時間は何秒ですか？",
+      "answer": "約800秒",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 875,
+      "video_id": 32,
+      "question": "同じく1GBのファイルを10BASE‑Tで転送するとき、ネットワーク利用率が40％の場合にかかる時間は何秒ですか？",
+      "answer": "約2000秒",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 876,
+      "video_id": 32,
+      "question": "TCP/IPプロトコルスタックにおいて、データを下位層へ渡す際にヘッダーを付加していく仕組みは何と呼ばれますか？",
+      "answer": "カプセル化",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 877,
+      "video_id": 32,
+      "question": "10BASE‑T の伝送速度は何 Mbps ですか？",
+      "answer": "10Mbps",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 878,
+      "video_id": 32,
+      "question": "1 バイト (B) は何ビット (bit) で構成されますか？",
+      "answer": "8ビット",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 879,
+      "video_id": 32,
+      "question": "出席課題で転送するファイルサイズは何 GB ですか？",
+      "answer": "2.8GB",
+      "human_evaluations": [
+        {
+          "score": 1,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 1.0
+    },
+    {
+      "qg_id": 880,
+      "video_id": 32,
+      "question": "TCP/IPプロトコル群とは何か?",
+      "answer": "TCP/IPプロトコル群は、インターネットやコンピュータネットワークにおいて通信を実現するための標準的なプロトコル集合です。",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 881,
+      "video_id": 32,
+      "question": "OSI参照モデルとTCPIPモデルの主な相違点は何ですか?",
+      "answer": "OSI参照モデルは7層から構成され、各レイヤーが異なる機能を持ちます。一方、TCPIPモデルは4層（アプリケーション、トランスポート、インターネット、ネットワーク）から構成されており、実際の使用ではこれらが統合されています。",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 882,
+      "video_id": 32,
+      "question": "階層化の利点とは何か?",
+      "answer": "階層化の利点は、システム全体の複雑さを減らし、各コンポーネントや役割が明確になり、単純化されます。これにより、問題発生時に責任区域が明確になり、修正や保守作業が容易くなります。",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 883,
+      "video_id": 32,
+      "question": "OSI参照モデルとTCPIPモデルの主な違いは何ですか？",
+      "answer": "OSI参照モデルは7層から構成され、各レイヤーが異なる機能を持ちます。TCPIPモデルは4階層（アプリケーション、トランスポート、インターネット、ネットワーク）に分かれ、よりシンプルな設計になっています。",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 884,
+      "video_id": 32,
+      "question": "パケット交換方式のメリットは何ですか？",
+      "answer": "パケット交換方式では、多数のユーザーが一本の回線を共有できます。これにより、回線利用効率が向上し、コスト削減につながります。",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 885,
+      "video_id": 32,
+      "question": "ARPANETはTCPIPモデルの前身ですが、その歴史的背景について説明してください。",
+      "answer": "ARPANETは1969年にアメリカの西海岸の4つの大学と研究機関がコンピューターを結びつけて作り上げたネットワークであり、TCPIPモデルの原型となった。ARPANETは異なるハードウェアやソフトウェアを持つコンピュータ間での通信手段を提供するために重要な役割を果たしました。",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 886,
+      "video_id": 32,
+      "question": "ARPANETの初期において、どのようなコンピューターメーカーが接続されていましたか？",
+      "answer": "SDS940、DECのPDP-10、IBMのSystem360など",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 887,
+      "video_id": 32,
+      "question": "パケット交換ネットワークの主要なメリットは何ですか？",
+      "answer": "回線コストを下げ、通信継続性を持たせること",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 888,
+      "video_id": 32,
+      "question": "TCPIPが広く普及する前のOSIプロトコルとはどのようなものでしたか？",
+      "answer": "国際標準プロトコル",
+      "human_evaluations": [
+        {
+          "score": 2,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 2.0
+    },
+    {
+      "qg_id": 889,
+      "video_id": 32,
+      "question": "ARPANETは1970年代初頭にどのようなプロジェクトとして始まりましたか？",
+      "answer": "ARPANETは1969年にアメリカの防衛技術諮問委員会(DARPA)によって、コンピュータ間通信を研究するためのプロジェクトとして始まりました。",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 890,
+      "video_id": 32,
+      "question": "TCP/IPプロトコル群のトランスポート層では、どのような2つのプロトコルが定義されていますか？",
+      "answer": "TCP/IPプロトコル群のトランスポート層には、確実なデータ転送を提供するTCP（Transmission Control Protocol）と、信頼性なしのデータ転送を提供するUDP（User Datagram Protocol）の2つのプロトコルが定義されています。",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 891,
+      "video_id": 32,
+      "question": "インターネット標準化においてTCPIPが成功した理由は何ですか？",
+      "answer": "TCPIPが成功した理由の一つは、そのプロトコルの開発過程でオープンな協議と実用性に重点を置いたことです。具体的には、実際に動作するプログラムを作成し、それが相互接続可能であることを証明することで、他のプロトコルよりも広く受け入れられました。",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 892,
+      "video_id": 32,
+      "question": "TCP/IPプロトコル群におけるトランスポート層の2つの主要なプロトコルは何ですか？",
+      "answer": "TCPとUDP",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 893,
+      "video_id": 32,
+      "question": "インターネット標準化を進める団体は誰ですか？",
+      "answer": "IETF",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 894,
+      "video_id": 32,
+      "question": "1オクテットは何ビットですか？",
+      "answer": "8ビット",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 895,
+      "video_id": 32,
+      "question": "TCP/IPプロトコルの動作に関する説明を聞いた後、インターネット層とアプリケーション層の役割について問い直す問題。",
+      "answer": "インターネット層は、データパケットの転送路由やリピーテーションなどを行います。アプリケーション層は、アプリケーションの要件に応じてデータを適切にフォーマッテ化し、トランスポート層へ渡します。",
+      "human_evaluations": [
+        {
+          "score": 2,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 2.0
+    },
+    {
+      "qg_id": 896,
+      "video_id": 32,
+      "question": "10BASE-T規格と1000BASE-T規格の違いについて問い直す問題。",
+      "answer": "10BASE-Tは、データ転送速度が10MbpsのEthernet接続方法です。1000BASE-Tは、データ転送速度が1Gbpsの高速Ethernet接続方法です。",
+      "human_evaluations": [
+        {
+          "score": 2,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 2.0
+    },
+    {
+      "qg_id": 897,
+      "video_id": 32,
+      "question": "TCP/IPプロトコルのヘッダーについて問い直す問題。",
+      "answer": "TCP/IPプロトコルのヘッダーは、データの転送に必要な情報を含みます。これには元のアプリケーションからのデータ、転送方法、エラーコントロール、フラグなどが含まれます。",
+      "human_evaluations": [
+        {
+          "score": 2,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 2.0
+    },
+    {
+      "qg_id": 898,
+      "video_id": 32,
+      "question": "TCP/IPプロトコル群とは何か、そしてインターネットの通信にどのように役割を果たしているか説明してください。",
+      "answer": "TCP/IPプロトコル群は、コンピュータ間でのデータ通信を行うための標準的なプロトコル集合です。インターネットにおいて、データ転送や通信の管理などを行います。また、OSI参照モデルとは異なる7層構造を持ち、実際のインターネット通信ではTCPIPが主に使用されています。",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 899,
+      "video_id": 32,
+      "question": "階層化の利点について、具体的な例を挙げて説明してください。",
+      "answer": "階層化の利点は、各コンピュータやネットワーク機器が自己の役割に専念することにより、データ通信プロセスの単純化と効率化が図れます。例えば、契約書作成から翻訳、配送までの業務を分担して行うことで、それぞれの職務範囲が明確になり、エラー発生時の修正責任も特定することができます。また、ネットワーク構築においては、データリンク層と物理層の役割分担により、通信効率向上やトラフィック管理が可能となります。",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 900,
+      "video_id": 32,
+      "question": "OSI参照モデルとTCPIPモデルの主な相違点は何ですか？",
+      "answer": "OSI参照モデルは7層構造（アプリケーション、プレゼンテーション、セッション、トランスポート、ネットワーク、データリンク、物理）を持ち、これら各レイヤー間のプロトコルスタックにより通信が実現されます。一方TCPIPモデルは4層構造（アプリケーション、トランスポート、インターネット、ネットワークインターフェース）であり、簡化された設計を採用しています。TCPIPは実際のインターネット通信において主流となり、OSI参照モデルのいくつかの機能を統合・省略した形で使用されています。",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 901,
+      "video_id": 32,
+      "question": "OSI参照モデルとTCP/IPプロトコル群の違いについて、次のいずれかが正しいかどうか判定してください。",
+      "answer": "OSI参照モデルの7階層構造に対比して、TCP/IPプロトコルは4階層（アプリケーション、トランスポート、インターネット、ネットワーク）から成ります。",
+      "human_evaluations": [
+        {
+          "score": 1,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 1.0
+    },
+    {
+      "qg_id": 902,
+      "video_id": 32,
+      "question": "パケット交換方式と回線交換方式の主な違いは何ですか？",
+      "answer": "パケット交換方式では複数ユーザーが一つの回線を共有し、データ小包を転送することで通信効率を高めます。一方、回線交換方式は一本の回線を一貫して占有し、二者間のみ通信を行います。",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 903,
+      "video_id": 32,
+      "question": "ARPANETがパケット交換ネットワークの基盤となった理由について説明してください。",
+      "answer": "ARPANETは、1960年代後半にアメリカ軍によって開発されたパケット交換方式を利用した通信網で、多数のコンピュータ間でのデータ転送手段として成功しました。これにより、回線コストを削減し、通信継続性を高めることができました。",
+      "human_evaluations": [
+        {
+          "score": 2,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 2.0
+    },
+    {
+      "qg_id": 904,
+      "video_id": 32,
+      "question": "インターネットで使用されているプロトコル群の名称は何ですか？",
+      "answer": "TCP/IP",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 905,
+      "video_id": 32,
+      "question": "OSI参照モデルはいくつの階層で構成されていますか？",
+      "answer": "7",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 906,
+      "video_id": 32,
+      "question": "TCP/IPモデルにおいて、アプリケーション層とトランスポート層の下にある階層の名称は何ですか？",
+      "answer": "インターネットプロトコル",
+      "human_evaluations": [
+        {
+          "score": 2,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 2.0
+    },
+    {
+      "qg_id": 907,
+      "video_id": 32,
+      "question": "インターネットの起源とされるネットワークの名称は何ですか？",
+      "answer": "ARPANET",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 908,
+      "video_id": 32,
+      "question": "パケット交換ネットワークの利点として挙げられた、複数のユーザーが同時に回線を共有できる理由は何ですか？",
+      "answer": "回線の利用効率が向上し、回線コストを下げることにつながる",
+      "human_evaluations": [
+        {
+          "score": 1,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 1.0
+    },
+    {
+      "qg_id": 909,
+      "video_id": 32,
+      "question": "TCP/IPが標準的に利用されるようになった理由として、WindowsやmacOSなどのOSが標準でサポートしたことが理由であるか？",
+      "answer": "いいえ、それは結果論であり、理由ではない",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 910,
+      "video_id": 32,
+      "question": "TCP/IPが標準的なプロトコルとなった理由として、講義ではWindowsやmacOSなどのOSがTCP/IPを標準でサポートしたことが挙げられたが、これは正しいか？",
+      "answer": "正しくない",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 911,
+      "video_id": 32,
+      "question": "パケット交換ネットワークの導入により、通信のどの特性が向上したか？",
+      "answer": "障害に強い",
+      "human_evaluations": [
+        {
+          "score": 4,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 4.0
+    },
+    {
+      "qg_id": 912,
+      "video_id": 32,
+      "question": "1965年にパケット通信の提唱を行ったのはどの国で、誰が行ったか？",
+      "answer": "英国、ドナルド・ワッツ・デイヴィス",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 913,
+      "video_id": 32,
+      "question": "ARPANETで利用される唯一のプロトコルとなったのはどれですか？",
+      "answer": "TCP/IP",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 914,
+      "video_id": 32,
+      "question": "TCP/IPプロトコル群のトランスポート層で定義されているプロトコルはどれですか？",
+      "answer": "TCPとUDP",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 915,
+      "video_id": 32,
+      "question": "TCP/IP階層モデルのインターネット層で、各端末に割り当てられる唯一の識別子は何ですか？",
+      "answer": "IPアドレス",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 916,
+      "video_id": 32,
+      "question": "TCP/IPプロトコル群のトランスポート層で定義されている2つのプロトコルは何ですか？",
+      "answer": "TCPとUDP",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 917,
+      "video_id": 32,
+      "question": "インターネット層で各端末に割り当てられる唯一の識別子は何と呼ばれますか？",
+      "answer": "IPアドレス",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 918,
+      "video_id": 32,
+      "question": "ネットワークの世界では、8ビットの固まりを何と呼んでいますか？",
+      "answer": "オクテット",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 919,
+      "video_id": 32,
+      "question": "TCP/IPプロトコル群の階層モデルにおいて、アプリケーション層の下の階層は何ですか？",
+      "answer": "トランスポート層",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 920,
+      "video_id": 32,
+      "question": "10BASE-Tというネットワーク規格の「10」は、どの通信速度を表していますか？",
+      "answer": "10Mbps",
+      "human_evaluations": [
+        {
+          "score": 2,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 2.0
+    },
+    {
+      "qg_id": 921,
+      "video_id": 32,
+      "question": "ネットワークの世界では、8ビットの固まりを何と呼んでいますか？",
+      "answer": "オクテット",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 922,
+      "video_id": 32,
+      "question": "10BASE-Tの伝送速度は何か。",
+      "answer": "10Mbps",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 923,
+      "video_id": 32,
+      "question": "1GBのファイルを10BASE-Tで転送する場合、データ転送に関わる処理手順の時間を無視すると、転送時間は約何秒か。",
+      "answer": "800秒",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 924,
+      "video_id": 32,
+      "question": "100BASE-TXで2.8GBのファイルを転送する際、データ転送時のネットワーク利用率が80%の場合、転送時間は元の時間の何倍になるか。",
+      "answer": "1.25倍",
+      "human_evaluations": [
+        {
+          "score": 3,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 3.0
+    },
+    {
+      "qg_id": 925,
+      "video_id": 32,
+      "question": "100BASE-TXの伝送速度はいくらですか？",
+      "answer": "100Mbps",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 926,
+      "video_id": 32,
+      "question": "10Gbpsのネットワークは1Gbpsのネットワークより何倍速いですか？",
+      "answer": "10倍",
+      "human_evaluations": [
+        {
+          "score": 5,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 5.0
+    },
+    {
+      "qg_id": 927,
+      "video_id": 32,
+      "question": "データ転送時間の計算において、1バイトは何ビットに相当しますか？",
+      "answer": "8ビット",
+      "human_evaluations": [
+        {
+          "score": 2,
+          "reason": null,
+          "created_by": "TEST"
+        }
+      ],
+      "accuracy_avg": 2.0
+    }
+  ]
+}

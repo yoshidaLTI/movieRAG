@@ -23,29 +23,16 @@ dependencies = [
 ]
 
 [project.scripts]
-movie-pipeline      = "pipeline:main"
-movie-ocr           = "slide_checker:main"
-movie-nouns         = "proper_nouns_global:main"
-movie-asr           = "asr:main"
-movie-rag-build     = "rag_build:main"
-movie-rag-build-slide = "rag_build_slide:main"
-movie-rag-search    = "rag_search:main"
-movie-rag-search-slide = "rag_search_slide:main"
-movie-extract-asr   = "extract_asr:main"
+movie-pipeline        = "extract.pipeline:main"
+movie-ocr             = "extract.slide_checker:main"
+movie-nouns           = "extract.proper_nouns_global:main"
+movie-asr             = "extract.asr:main"
+movie-rag-build       = "extract.rag_build:main"
+movie-rag-build-slide = "extract.rag_build_slide:main"
+movie-rag-search      = "extract.rag_search:main"
+movie-rag-search-slide = "extract.rag_search_slide:main"
+movie-extract-asr     = "extract.extract_asr:main"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["rag*", "slide_base_rag*"]
-
-[tool.setuptools]
-py-modules = [
-    "pipeline",
-    "slide_checker",
-    "proper_nouns_global",
-    "asr",
-    "rag_build",
-    "rag_build_slide",
-    "rag_search",
-    "rag_search_slide",
-    "extract_asr",
-]
+include = ["rag*", "slide_base_rag*", "extract*", "qg*", "eval*"]

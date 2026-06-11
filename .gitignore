@@ -14,17 +14,10 @@ movie/**
 # ChromaDB インデックス
 chroma_*/
 
-# 評価中間ファイル
-previous_qg/rag_quality_scores.json
-previous_qg/rag_quality_result.json
-previous_qg/rag_quality_scores_*.json
-
-# 分析・評価スクリプト・データ（ローカル研究用）
-analyze/
-eval_rag_quality.py
-dump_qwen_scores.py
-previous_qg/
-claude_knowledge/
+# 評価の生成物（自動生成されるスコアファイル）
+eval/previous_qg/rag_quality_scores.json
+eval/previous_qg/rag_quality_result.json
+eval/previous_qg/rag_quality_scores_*.json
 
 # キャッシュ
 .cache/
