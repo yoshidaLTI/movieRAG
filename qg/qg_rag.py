@@ -109,6 +109,7 @@ def run(
     rag_k: int,
     output_path: str | None,
     embedding_model: str,
+    save_chunks: bool = False,
     lmstudio_url: str = LMSTUDIO_URL,
 ):
     data = load_result(result_json_path)
@@ -126,6 +127,7 @@ def run(
 
     child_store, parent_store = load_stores(chroma_dir, embedding_model)
 
+    chunk_log = []
     results = []
     for chunk in chunks:
         label = f"{chunk['chunk_id']} ({chunk['start_sec']:.0f}s〜{chunk['end_sec']:.0f}s)"
@@ -146,6 +148,20 @@ def run(
             continue
         context = "\n\n---\n\n".join(d.page_content for d in docs)
 
+        if save_chunks:
+            chunk_log.append({
+                "chunk_id":  chunk["chunk_id"],
+                "slide_ids": chunk["slide_ids"],
+                "start_sec": chunk["start_sec"],
+                "end_sec":   chunk["end_sec"],
+                "llm_input": {
+                    "ocr_text":    chunk["ocr_text"],
+                    "asr_text":    chunk["asr_text"],
+                    "seeds":       seeds,
+                    "rag_context": context,
+                },
+            })
+
         # Step 3: 質問生成
         questions = generate_questions_with_rag(seeds, context, questions_per_chunk, model, lmstudio_url)
         if questions:
@@ -160,6 +176,12 @@ def run(
             print(f"{len(questions)}問 OK")
         else:
             print("SKIP (質問生成失敗)")
+
+    if save_chunks:
+        chunks_path = Path(result_json_path).parent / f"qg_chunks_{chunk_mode}.json"
+        with open(chunks_path, "w", encoding="utf-8") as f:
+            json.dump(chunk_log, f, ensure_ascii=False, indent=2)
+        print(f"[INFO] チャンク保存 → {chunks_path}")
 
     out_path = (
         Path(output_path) if output_path
@@ -191,6 +213,7 @@ def main():
     parser.add_argument("--rag-k",           type=int, default=3,              help="RAG検索の上位k件")
     parser.add_argument("--output",          default=None,                      help="出力JSONパス（省略時: result.jsonと同ディレクトリ）")
     parser.add_argument("--embedding-model", default="cl-nagoya/ruri-v3-310m", help="埋め込みモデル名")
+    parser.add_argument("--save-chunks",     action="store_true",               help="LLMに渡すテキスト（OCR/ASR/seed/RAGコンテキスト）をJSONに保存して確認する")
     parser.add_argument("--lmstudio-url",    default=LMSTUDIO_URL,              help="LMStudioエンドポイント")
 
     args = parser.parse_args()
@@ -207,6 +230,7 @@ def main():
         rag_k=args.rag_k,
         output_path=args.output,
         embedding_model=args.embedding_model,
+        save_chunks=args.save_chunks,
         lmstudio_url=args.lmstudio_url,
     )
 

@@ -93,6 +93,7 @@ def run(
     questions_per_chunk: int,
     model: str,
     output_path: str | None,
+    save_chunks: bool = False,
     lmstudio_url: str = LMSTUDIO_URL,
 ):
     data = load_result(result_json_path)
@@ -106,6 +107,27 @@ def run(
         mode_label = f"{minutes_per_chunk}分単位"
 
     print(f"[INFO] チャンク数: {len(chunks)}  モード: {mode_label}  1区間{questions_per_chunk}問  モデル: {model}")
+
+    if save_chunks:
+        chunks_path = (
+            Path(result_json_path).parent / f"qg_chunks_{chunk_mode}.json"
+        )
+        chunk_log = [
+            {
+                "chunk_id":  c["chunk_id"],
+                "slide_ids": c["slide_ids"],
+                "start_sec": c["start_sec"],
+                "end_sec":   c["end_sec"],
+                "llm_input": {
+                    "ocr_text": c["ocr_text"],
+                    "asr_text": c["asr_text"],
+                },
+            }
+            for c in chunks
+        ]
+        with open(chunks_path, "w", encoding="utf-8") as f:
+            json.dump(chunk_log, f, ensure_ascii=False, indent=2)
+        print(f"[INFO] チャンク保存 → {chunks_path}")
 
     results = []
     for chunk in chunks:
@@ -154,6 +176,7 @@ def main():
     parser.add_argument("--questions-per-chunk", type=int,   default=1,   help="1区間あたりの生成問題数")
     parser.add_argument("--model",         default="qwen/qwen3-vl-8b", help="LMStudioモデル名")
     parser.add_argument("--output",        default=None,                help="出力JSONパス（省略時: result.jsonと同ディレクトリ）")
+    parser.add_argument("--save-chunks",   action="store_true",         help="LLMに渡すテキストをJSONに保存して確認する")
     parser.add_argument("--lmstudio-url",  default=LMSTUDIO_URL,        help="LMStudioエンドポイント")
 
     args = parser.parse_args()
@@ -167,6 +190,7 @@ def main():
         questions_per_chunk=args.questions_per_chunk,
         model=args.model,
         output_path=args.output,
+        save_chunks=args.save_chunks,
         lmstudio_url=args.lmstudio_url,
     )
 
