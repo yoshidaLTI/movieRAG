@@ -2,6 +2,7 @@
 qg_rag.py
 
 RAGを使って質問を生成する（パターン3・4）。
+結果は qg_result.json に追記される。
 
 処理フロー:
   1. チャンクのOCR+ASRからキーワード（seed）をLLMで抽出
@@ -51,7 +52,11 @@ QG_RAG_PROMPT = """\
 # 出力形式
 以下のJSON形式のみで出力してください。前置き・説明・コードブロックは不要です。
 最初の文字が [ で最後の文字が ] であること。
-[{{"question": "質問文", "answer": "解答文"}}, ...]"""
+
+question_type は以下のいずれか: 一問一答, 多岐選択問題, 記述型
+bloom_level は以下のいずれか: 知識, 応用, 評価
+
+[{{"question": "質問文", "answer": "解答文", "question_type": "一問一答", "bloom_level": "知識"}}, ...]"""
 
 
 def generate_questions_with_rag(
@@ -85,14 +90,19 @@ def generate_questions_with_rag(
     raw = re.sub(r"```(?:json)?", "", raw).replace("```", "").strip()
     try:
         data = json.loads(raw)
+        if isinstance(data, dict):
+            data = [data]
         if isinstance(data, list):
             return [
-                {"question": str(d["question"]), "answer": str(d["answer"])}
+                {
+                    "question":      str(d.get("question", "")),
+                    "answer":        str(d.get("answer", "")),
+                    "question_type": str(d.get("question_type", "")),
+                    "bloom_level":   str(d.get("bloom_level", "")),
+                }
                 for d in data
-                if isinstance(d, dict) and "question" in d and "answer" in d
+                if isinstance(d, dict) and d.get("question") and d.get("answer")
             ]
-        if isinstance(data, dict) and "question" in data and "answer" in data:
-            return [{"question": str(data["question"]), "answer": str(data["answer"])}]
     except json.JSONDecodeError:
         pass
     return []
@@ -118,17 +128,24 @@ def run(
     if chunk_mode == "slides":
         chunks = chunk_by_slides(slides, slides_per_chunk)
         mode_label = f"スライド{slides_per_chunk}枚単位"
+        detail = {"chunk_mode": "slides", "slides_per_chunk": slides_per_chunk,
+                  "questions_per_chunk": questions_per_chunk, "rag_k": rag_k,
+                  "chroma": chroma_dir}
     else:
         chunks = chunk_by_time(slides, minutes_per_chunk)
         mode_label = f"{minutes_per_chunk}分単位"
+        detail = {"chunk_mode": "time", "minutes_per_chunk": minutes_per_chunk,
+                  "questions_per_chunk": questions_per_chunk, "rag_k": rag_k,
+                  "chroma": chroma_dir}
 
     print(f"[INFO] チャンク数: {len(chunks)}  モード: {mode_label}  1区間{questions_per_chunk}問  モデル: {model}")
     print(f"[INFO] RAGインデックス: {chroma_dir}")
 
     child_store, parent_store = load_stores(chroma_dir, embedding_model)
 
-    chunk_log = []
-    results = []
+    chunk_log: list[dict] = []
+    new_entries: list[dict] = []
+
     for chunk in chunks:
         label = f"{chunk['chunk_id']} ({chunk['start_sec']:.0f}s〜{chunk['end_sec']:.0f}s)"
         print(f"  {label}", end=" ", flush=True)
@@ -140,7 +157,7 @@ def run(
             continue
         print(f"seed:{len(seeds)}語", end=" ", flush=True)
 
-        # Step 2: RAG検索（全seedを1クエリにまとめて検索）
+        # Step 2: RAG検索
         query = "、".join(seeds)
         docs = search(query, child_store, parent_store, k=rag_k)
         if not docs:
@@ -165,14 +182,23 @@ def run(
         # Step 3: 質問生成
         questions = generate_questions_with_rag(seeds, context, questions_per_chunk, model, lmstudio_url)
         if questions:
-            results.append({
-                "chunk_id":  chunk["chunk_id"],
-                "slide_ids": chunk["slide_ids"],
-                "start_sec": chunk["start_sec"],
-                "end_sec":   chunk["end_sec"],
-                "seeds":     seeds,
-                "questions": questions,
-            })
+            for qi, q in enumerate(questions):
+                qid = f"rag_{chunk_mode}_{chunk['chunk_id']}_q{qi:02d}"
+                new_entries.append({
+                    "question_id":   qid,
+                    "model":         model,
+                    "method":        "rag",
+                    "detail":        detail,
+                    "chunk_id":      chunk["chunk_id"],
+                    "slide_ids":     chunk["slide_ids"],
+                    "start_sec":     chunk["start_sec"],
+                    "end_sec":       chunk["end_sec"],
+                    "seeds":         seeds,
+                    "question":      q["question"],
+                    "answer":        q["answer"],
+                    "question_type": q["question_type"],
+                    "bloom_level":   q["bloom_level"],
+                })
             print(f"{len(questions)}問 OK")
         else:
             print("SKIP (質問生成失敗)")
@@ -183,15 +209,17 @@ def run(
             json.dump(chunk_log, f, ensure_ascii=False, indent=2)
         print(f"[INFO] チャンク保存 → {chunks_path}")
 
-    out_path = (
-        Path(output_path) if output_path
-        else Path(result_json_path).parent / f"qg_rag_{chunk_mode}.json"
-    )
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(results, f, ensure_ascii=False, indent=2)
+    out_path = Path(output_path) if output_path else Path(result_json_path).parent / "qg_result.json"
+    existing = []
+    if out_path.exists():
+        with open(out_path, encoding="utf-8") as f:
+            existing = json.load(f)
 
-    total = sum(len(r["questions"]) for r in results)
-    print(f"\n[DONE] {total}問生成（{len(results)}チャンク） → {out_path}")
+    all_entries = existing + new_entries
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(all_entries, f, ensure_ascii=False, indent=2)
+
+    print(f"\n[DONE] {len(new_entries)}問追加（合計{len(all_entries)}問） → {out_path}")
 
 
 def main():
@@ -199,8 +227,8 @@ def main():
         description="RAGを使って質問生成（パターン3・4）",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
-    parser.add_argument("result",    help="result.jsonのパス")
-    parser.add_argument("--chroma",  required=True, help="RAGインデックスのパス")
+    parser.add_argument("result",   help="result.jsonのパス")
+    parser.add_argument("--chroma", required=True, help="RAGインデックスのパス")
 
     mode_group = parser.add_mutually_exclusive_group(required=True)
     mode_group.add_argument("--by-slides", action="store_true", help="スライド枚数基準（パターン3）")
@@ -211,9 +239,9 @@ def main():
     parser.add_argument("--questions-per-chunk", type=int,   default=1,   help="1区間あたりの生成問題数")
     parser.add_argument("--model",           default="qwen/qwen3-vl-8b",       help="LMStudioモデル名")
     parser.add_argument("--rag-k",           type=int, default=3,              help="RAG検索の上位k件")
-    parser.add_argument("--output",          default=None,                      help="出力JSONパス（省略時: result.jsonと同ディレクトリ）")
+    parser.add_argument("--output",          default=None,                      help="出力JSONパス（省略時: result.jsonと同ディレクトリのqg_result.json）")
     parser.add_argument("--embedding-model", default="cl-nagoya/ruri-v3-310m", help="埋め込みモデル名")
-    parser.add_argument("--save-chunks",     action="store_true",               help="LLMに渡すテキスト（OCR/ASR/seed/RAGコンテキスト）をJSONに保存して確認する")
+    parser.add_argument("--save-chunks",     action="store_true",               help="LLMに渡すテキストをJSONに保存して確認する")
     parser.add_argument("--lmstudio-url",    default=LMSTUDIO_URL,              help="LMStudioエンドポイント")
 
     args = parser.parse_args()

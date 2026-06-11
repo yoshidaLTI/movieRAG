@@ -2,6 +2,7 @@
 qg_direct.py
 
 result.json から直接質問を生成する（パターン1・2）。
+結果は qg_result.json に追記される。
 
 使い方:
   # パターン1: スライド枚数基準（3枚ごとに2問）
@@ -35,7 +36,11 @@ QG_PROMPT = """\
 # 出力形式
 以下のJSON形式のみで出力してください。前置き・説明・コードブロックは不要です。
 最初の文字が [ で最後の文字が ] であること。
-[{{"question": "質問文", "answer": "解答文"}}, ...]"""
+
+question_type は以下のいずれか: 一問一答, 多岐選択問題, 記述型
+bloom_level は以下のいずれか: 知識, 応用, 評価
+
+[{{"question": "質問文", "answer": "解答文", "question_type": "一問一答", "bloom_level": "知識"}}, ...]"""
 
 
 def generate_questions(
@@ -72,14 +77,19 @@ def generate_questions(
     raw = re.sub(r"```(?:json)?", "", raw).replace("```", "").strip()
     try:
         data = json.loads(raw)
+        if isinstance(data, dict):
+            data = [data]
         if isinstance(data, list):
             return [
-                {"question": str(d["question"]), "answer": str(d["answer"])}
+                {
+                    "question":      str(d.get("question", "")),
+                    "answer":        str(d.get("answer", "")),
+                    "question_type": str(d.get("question_type", "")),
+                    "bloom_level":   str(d.get("bloom_level", "")),
+                }
                 for d in data
-                if isinstance(d, dict) and "question" in d and "answer" in d
+                if isinstance(d, dict) and d.get("question") and d.get("answer")
             ]
-        if isinstance(data, dict) and "question" in data and "answer" in data:
-            return [{"question": str(data["question"]), "answer": str(data["answer"])}]
     except json.JSONDecodeError:
         pass
     return []
@@ -102,26 +112,25 @@ def run(
     if chunk_mode == "slides":
         chunks = chunk_by_slides(slides, slides_per_chunk)
         mode_label = f"スライド{slides_per_chunk}枚単位"
+        detail = {"chunk_mode": "slides", "slides_per_chunk": slides_per_chunk,
+                  "questions_per_chunk": questions_per_chunk}
     else:
         chunks = chunk_by_time(slides, minutes_per_chunk)
         mode_label = f"{minutes_per_chunk}分単位"
+        detail = {"chunk_mode": "time", "minutes_per_chunk": minutes_per_chunk,
+                  "questions_per_chunk": questions_per_chunk}
 
     print(f"[INFO] チャンク数: {len(chunks)}  モード: {mode_label}  1区間{questions_per_chunk}問  モデル: {model}")
 
     if save_chunks:
-        chunks_path = (
-            Path(result_json_path).parent / f"qg_chunks_{chunk_mode}.json"
-        )
+        chunks_path = Path(result_json_path).parent / f"qg_chunks_{chunk_mode}.json"
         chunk_log = [
             {
                 "chunk_id":  c["chunk_id"],
                 "slide_ids": c["slide_ids"],
                 "start_sec": c["start_sec"],
                 "end_sec":   c["end_sec"],
-                "llm_input": {
-                    "ocr_text": c["ocr_text"],
-                    "asr_text": c["asr_text"],
-                },
+                "llm_input": {"ocr_text": c["ocr_text"], "asr_text": c["asr_text"]},
             }
             for c in chunks
         ]
@@ -129,7 +138,7 @@ def run(
             json.dump(chunk_log, f, ensure_ascii=False, indent=2)
         print(f"[INFO] チャンク保存 → {chunks_path}")
 
-    results = []
+    new_entries: list[dict] = []
     for chunk in chunks:
         label = f"{chunk['chunk_id']} ({chunk['start_sec']:.0f}s〜{chunk['end_sec']:.0f}s)"
         print(f"  {label} 生成中...", end=" ", flush=True)
@@ -138,26 +147,37 @@ def run(
             chunk["ocr_text"], chunk["asr_text"], questions_per_chunk, model, lmstudio_url
         )
         if questions:
-            results.append({
-                "chunk_id":  chunk["chunk_id"],
-                "slide_ids": chunk["slide_ids"],
-                "start_sec": chunk["start_sec"],
-                "end_sec":   chunk["end_sec"],
-                "questions": questions,
-            })
+            for qi, q in enumerate(questions):
+                qid = f"direct_{chunk_mode}_{chunk['chunk_id']}_q{qi:02d}"
+                new_entries.append({
+                    "question_id":   qid,
+                    "model":         model,
+                    "method":        "direct",
+                    "detail":        detail,
+                    "chunk_id":      chunk["chunk_id"],
+                    "slide_ids":     chunk["slide_ids"],
+                    "start_sec":     chunk["start_sec"],
+                    "end_sec":       chunk["end_sec"],
+                    "question":      q["question"],
+                    "answer":        q["answer"],
+                    "question_type": q["question_type"],
+                    "bloom_level":   q["bloom_level"],
+                })
             print(f"{len(questions)}問 OK")
         else:
             print("SKIP")
 
-    out_path = (
-        Path(output_path) if output_path
-        else Path(result_json_path).parent / f"qg_direct_{chunk_mode}.json"
-    )
-    with open(out_path, "w", encoding="utf-8") as f:
-        json.dump(results, f, ensure_ascii=False, indent=2)
+    out_path = Path(output_path) if output_path else Path(result_json_path).parent / "qg_result.json"
+    existing = []
+    if out_path.exists():
+        with open(out_path, encoding="utf-8") as f:
+            existing = json.load(f)
 
-    total = sum(len(r["questions"]) for r in results)
-    print(f"\n[DONE] {total}問生成（{len(results)}チャンク） → {out_path}")
+    all_entries = existing + new_entries
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(all_entries, f, ensure_ascii=False, indent=2)
+
+    print(f"\n[DONE] {len(new_entries)}問追加（合計{len(all_entries)}問） → {out_path}")
 
 
 def main():
@@ -174,10 +194,10 @@ def main():
     parser.add_argument("--slides-per-chunk",    type=int,   default=3,   help="スライド枚数基準のチャンクサイズ")
     parser.add_argument("--minutes-per-chunk",   type=float, default=5.0, help="経過時間基準のチャンクサイズ（分）")
     parser.add_argument("--questions-per-chunk", type=int,   default=1,   help="1区間あたりの生成問題数")
-    parser.add_argument("--model",         default="qwen/qwen3-vl-8b", help="LMStudioモデル名")
-    parser.add_argument("--output",        default=None,                help="出力JSONパス（省略時: result.jsonと同ディレクトリ）")
-    parser.add_argument("--save-chunks",   action="store_true",         help="LLMに渡すテキストをJSONに保存して確認する")
-    parser.add_argument("--lmstudio-url",  default=LMSTUDIO_URL,        help="LMStudioエンドポイント")
+    parser.add_argument("--model",        default="qwen/qwen3-vl-8b", help="LMStudioモデル名")
+    parser.add_argument("--output",       default=None,                help="出力JSONパス（省略時: result.jsonと同ディレクトリのqg_result.json）")
+    parser.add_argument("--save-chunks",  action="store_true",         help="LLMに渡すテキストをJSONに保存して確認する")
+    parser.add_argument("--lmstudio-url", default=LMSTUDIO_URL,        help="LMStudioエンドポイント")
 
     args = parser.parse_args()
     chunk_mode = "slides" if args.by_slides else "time"
